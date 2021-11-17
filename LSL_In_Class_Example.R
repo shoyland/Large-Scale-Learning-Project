@@ -1,10 +1,10 @@
 library(sparklyr)
 library(tidyverse)
 
-
+#smaller version of main program that runs quicker
 sc <- spark_connect(master = "local")
-train_inclass <- spark_read_csv(sc,path = "C:/Users/shoyl/Downloads/Large_Scale_Learning/validation_timeseries.csv",memory=FALSE)
-test_inclass <- spark_read_csv(sc,path = "C:/Users/shoyl/Downloads/Large_Scale_Learning/test_timeseries.csv",memory=FALSE)
+train_inclass <- spark_read_csv(sc,path = ".../validation_timeseries.csv",memory=FALSE)
+test_inclass <- spark_read_csv(sc,path = ".../test_timeseries.csv",memory=FALSE)
 
 train_inclass <- train_inclass %>%
   mutate(date = as.Date(date), 
